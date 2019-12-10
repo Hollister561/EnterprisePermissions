@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="safeRowBoundsEnabled" value="true"/>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="useGeneratedKeys" value="true"/>
+    </settings>
+
+    <!--&lt;!&ndash;设置别名&ndash;&gt;-->
+    <!--<typeAliases>-->
+        <!--<typeAlias type="com.xxx" alias="bb"/>-->
+    <!--</typeAliases>-->
+
+    <!--&lt;!&ndash;设置监听&ndash;&gt;-->
+    <!--<plugins>-->
+        <!--<plugin interceptor=""></plugin>-->
+    <!--</plugins>-->
+    <!--&lt;!&ndash;设置结果和类无法映射的情况&ndash;&gt;-->
+    <!--<typeHandlers>-->
+        <!---->
+    <!--</typeHandlers>-->
+</configuration>
