@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class TestController {
 
-    @RequestMapping("/hello.json")
+    @RequestMapping("/hello.page")
     @ResponseBody
     public JsonData hello(){
         log.info("hello");
