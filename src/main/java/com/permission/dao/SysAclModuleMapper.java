@@ -1,6 +1,6 @@
 package com.permission.dao;
 
-import com.zhyu.model.SysAclModule;
+import com.permission.model.SysAclModule;
 
 public interface SysAclModuleMapper {
     int deleteByPrimaryKey(Integer id);

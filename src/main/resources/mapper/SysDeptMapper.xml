@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhyu.dao.SysDeptMapper" >
-  <resultMap id="BaseResultMap" type="com.zhyu.model.SysDept" >
+<mapper namespace="com.permission.dao.SysDeptMapper" >
+  <resultMap id="BaseResultMap" type="com.permission.model.SysDept" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="parent_id" property="parentId" jdbcType="INTEGER" />
@@ -16,7 +16,7 @@
     id, name, parent_id, level, seq, remark, operator, operate_time, operate_ip
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from sys_dept
     where id = #{id,jdbcType=INTEGER}
@@ -25,17 +25,17 @@
     delete from sys_dept
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zhyu.model.SysDept" >
-    insert into sys_dept (id, name, parent_id, 
-      level, seq, remark, 
+  <insert id="insert" parameterType="com.permission.model.SysDept" >
+    insert into sys_dept (id, name, parent_id,
+      level, seq, remark,
       operator, operate_time, operate_ip
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
-      #{level,jdbcType=VARCHAR}, #{seq,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER},
+      #{level,jdbcType=VARCHAR}, #{seq,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR},
       #{operator,jdbcType=VARCHAR}, #{operateTime,jdbcType=TIMESTAMP}, #{operateIp,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.zhyu.model.SysDept" >
+  <insert id="insertSelective" parameterType="com.permission.model.SysDept" >
     insert into sys_dept
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -96,7 +96,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhyu.model.SysDept" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.permission.model.SysDept" >
     update sys_dept
     <set >
       <if test="name != null" >
@@ -126,7 +126,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhyu.model.SysDept" >
+  <update id="updateByPrimaryKey" parameterType="com.permission.model.SysDept" >
     update sys_dept
     set name = #{name,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=INTEGER},

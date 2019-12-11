@@ -1,7 +1,7 @@
 package com.permission.dao;
 
-import com.zhyu.model.SysLog;
-import com.zhyu.model.SysLogWithBLOBs;
+import com.permission.model.SysLog;
+import com.permission.model.SysLogWithBLOBs;
 
 public interface SysLogMapper {
     int deleteByPrimaryKey(Integer id);

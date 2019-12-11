@@ -1,9 +1,10 @@
 package com.permission.common;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @program: EnterprisePermissions
@@ -44,5 +45,13 @@ public class JsonData {
         JsonData jsonData = new JsonData(false);
         jsonData.msg = msg;
         return jsonData;
+    }
+
+    public Map<String,Object> toMap(){
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("ret",ret);
+        map.put("msg",msg);
+        map.put("data",data);
+        return map;
     }
 }

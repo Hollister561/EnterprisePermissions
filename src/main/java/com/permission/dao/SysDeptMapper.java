@@ -1,6 +1,6 @@
 package com.permission.dao;
 
-import com.zhyu.model.SysDept;
+import com.permission.model.SysDept;
 
 public interface SysDeptMapper {
     int deleteByPrimaryKey(Integer id);

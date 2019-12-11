@@ -1,6 +1,6 @@
 package com.permission.dao;
 
-import com.zhyu.model.SysUser;
+import com.permission.model.SysUser;
 
 public interface SysUserMapper {
     int deleteByPrimaryKey(Integer id);

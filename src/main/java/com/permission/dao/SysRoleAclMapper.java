@@ -1,6 +1,6 @@
 package com.permission.dao;
 
-import com.zhyu.model.SysRoleAcl;
+import com.permission.model.SysRoleAcl;
 
 public interface SysRoleAclMapper {
     int deleteByPrimaryKey(Integer id);
