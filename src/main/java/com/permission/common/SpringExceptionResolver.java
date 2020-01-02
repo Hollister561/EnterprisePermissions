@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @program: EnterprisePermissions
  * @description: 全局异常处理
+ *                HandlerExceptionResolver专门处理异常的包
  * @author: zhang yu
  * @create: 2019-12-11 13:35
  */
@@ -24,7 +25,7 @@ public class SpringExceptionResolver implements HandlerExceptionResolver {
         ModelAndView mv;
         String defaultMsg = "System error";
 
-        if(url.endsWith(".json") & (e instanceof PermissionException | e instanceof ParamException)){
+        if(url.endsWith(".json") && (e instanceof PermissionException | e instanceof ParamException)){
                 JsonData result = JsonData.fail(e.getMessage());
                 //jsonView来自spring-servlet.xml配置
                 mv = new ModelAndView("jsonView",result.toMap());

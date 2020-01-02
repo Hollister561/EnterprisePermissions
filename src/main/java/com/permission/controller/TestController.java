@@ -17,11 +17,11 @@ import java.util.Map;
 @Slf4j
 public class TestController {
 
-    @RequestMapping("/hello.page")
+    @RequestMapping("/hello.json")
     @ResponseBody
     public JsonData hello(){
         log.info("hello...");
-        throw new RuntimeException("RuntimeException");
+        throw new PermissionException("test Exception");
         //return JsonData.success("hello permission");
     }
 
