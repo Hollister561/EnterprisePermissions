@@ -13,12 +13,14 @@ import org.apache.commons.collections.MapUtils;
 
 /**
  * @program: EnterprisePermissions
- * @description:
+ * @description: Bean校验工具
  * @author: zhang yu
  * @create: 2019-12-11 16:36
  */
 
 public class BeanValidator {
+
+    //校验工厂
     private static ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 
     public static <T> Map<String,String> validate(T t,Class... groups){

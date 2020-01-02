@@ -21,5 +21,6 @@
 
     <!-- TRACE < DEBUG < INFO < WANR < ERROR -->
     <root level = "INFO">
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
