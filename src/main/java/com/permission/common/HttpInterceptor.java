@@ -7,6 +7,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -18,12 +19,16 @@ import java.util.Map;
 
 @Slf4j
 public class HttpInterceptor extends HandlerInterceptorAdapter {
+    public final static String START_TIME = "requestStartTime";
+
     @Override
     //请求之前
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String url = request.getRequestURI();
         Map map = request.getParameterMap();
+        long start = System.currentTimeMillis();
         log.info("preHandle获取的URL:{},Params:{}",url, JsonMapper.obj2String(map));
+        request.setAttribute(START_TIME,start);
         return true;
     }
 
@@ -32,7 +37,10 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         String url = request.getRequestURI();
         Map map = request.getParameterMap();
-        log.info("preHandle获取的URL:{},Params:{}",url, JsonMapper.obj2String(map));
+        long start = (long)request.getAttribute(START_TIME);
+        long end = System.currentTimeMillis();
+        log.info("preHandle获取的URL:{},Params:{},耗时:{}",url, JsonMapper.obj2String(map),end - start);
+        removeThreadLocalInfo();
     }
 
     @Override
@@ -40,7 +48,13 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         String url = request.getRequestURI();
         Map map = request.getParameterMap();
-        log.info("preHandle获取的URL:{},Params:{}",url, JsonMapper.obj2String(map));
+        long start = (long)request.getAttribute(START_TIME);
+        long end = System.currentTimeMillis();
+        log.info("preHandle获取的URL:{},Params:{},耗时:{}", url, JsonMapper.obj2String(map),end - start);
+        removeThreadLocalInfo();
+    }
+
+    public void removeThreadLocalInfo(){
 
     }
 }
